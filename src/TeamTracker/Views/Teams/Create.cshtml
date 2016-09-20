@@ -1,0 +1,22 @@
+﻿@model TeamTracker.Models.Team
+
+@{ 
+    ViewData["Title"] = "Add Team";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Add a Team</h1>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name)
+ 
+    @Html.LabelFor(model => model.Captain)
+    @Html.TextBoxFor(model => model.Captain)
+
+    @Html.LabelFor(model => model.Player)
+    @Html.TextBoxFor(model => model.Player)
+
+    <input type="submit" value="Create" class="btn-btn-default" />
+}
