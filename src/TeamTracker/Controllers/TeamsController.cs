@@ -15,5 +15,11 @@ namespace TeamTracker.Controllers
         {
             return View(db.Teams.ToList());
         }
+
+        public IActionResult Details(int id)
+        {
+            var thisTeam = db.Teams.FirstOrDefault(teams => teams.TeamId == id);
+            return View(thisTeam);
+        }
     }
 }

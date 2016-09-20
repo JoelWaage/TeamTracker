@@ -1,0 +1,14 @@
+﻿@model TeamTracker.Models.Team
+
+@{ 
+    ViewData["Title"] = "Team Deets";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@Html.DisplayFor(model => model.Name)</h1>
+<hr />
+<h2>Team Captain: @Html.DisplayFor(model => model.Captain)</h2>
+<br />
+<h3>Featuring: @Html.DisplayFor(model => model.Player)</h3>
+<br />
+<p>@Html.ActionLink("Back to List", "Index")</p>
