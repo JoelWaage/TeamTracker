@@ -1,0 +1,21 @@
+﻿@model IEnumerable<TeamTracker.Models.Team>
+
+@{
+    ViewData["Title"] = "Team Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Teams: </h2>
+<hr />
+<ul>
+    @foreach (var listTeam in Model)
+    {
+        <li><strong>@Html.DisplayFor(modelTeam => listTeam.Name)</strong></li>
+        <br />
+        <ul>
+            <li><strong>Captain: </strong>@Html.DisplayFor(modelTeam => listTeam.Captain)</li>
+            <li><strong>Players: </strong> @Html.DisplayFor(modelTEam => listTeam.Player)</li>
+            <br />
+        </ul>
+    }
+</ul>
