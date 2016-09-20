@@ -49,5 +49,20 @@ namespace TeamTracker.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult Delete(int id)
+        {
+            var thisTeam = db.Teams.FirstOrDefault(teams => teams.TeamId == id);
+            return View(thisTeam);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var thisTeam = db.Teams.FirstOrDefault(teams => teams.TeamId == id);
+            db.Teams.Remove(thisTeam);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

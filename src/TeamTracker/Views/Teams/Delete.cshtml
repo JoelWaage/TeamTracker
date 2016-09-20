@@ -1,0 +1,15 @@
+﻿@model TeamTracker.Models.Team
+
+@{ 
+    ViewData["Title"] = "Delete Team from Database";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Are you sure you want to delete @Html.DisplayFor(model => model.Name) From the Database?</h2>
+
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Delete" />
+}
+<br />
+<p>@Html.ActionLink("Back to List", "Index")</p>
