@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TeamTracker.Models;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace TeamTracker.Controllers
@@ -31,6 +32,20 @@ namespace TeamTracker.Controllers
         public IActionResult Create(Team team)
         {
             db.Teams.Add(team);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Edit(int id)
+        {
+            var thisTeam = db.Teams.FirstOrDefault(teams => teams.TeamId == id);
+            return View(thisTeam);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Team team)
+        {
+            db.Entry(team).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

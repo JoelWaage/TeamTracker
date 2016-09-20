@@ -1,0 +1,28 @@
+﻿@model TeamTracker.Models.Team
+
+@{ 
+    ViewData["Title"] = "Update Team Info";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+<hr />
+<h3>Edit the: @Html.DisplayFor(model => model.Name)</h3>
+<br />
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.TeamId)
+
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name)
+
+    @Html.LabelFor(model => model.Captain)
+    @Html.EditorFor(model => model.Captain)
+
+    @Html.LabelFor(model => model.Player)
+    @Html.EditorFor(model => model.Player)
+
+    <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to List", "Index")</p>

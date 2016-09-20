@@ -10,8 +10,7 @@
 <ul>
     @foreach (var listTeam in Model)
     {
-        <li><strong>@Html.DisplayFor(modelTeam => listTeam.Name)</strong> | @Html.ActionLink("Details", "Details", new { id = listTeam.TeamId }) | </li>
-        <br />
+        <li><strong>@Html.DisplayFor(modelTeam => listTeam.Name)</strong> | @Html.ActionLink("Details", "Details", new { id = listTeam.TeamId }) | @Html.ActionLink("Edit", "Edit", new { id = listTeam.TeamId }) |</li>
     }
 </ul>
 
